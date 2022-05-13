@@ -2,6 +2,7 @@
   background-image: linear-gradient(white, pink, magenta);
   width: 100vw;
   height: 100vh;
+  text-align: center;
 }
 
 h1 {
@@ -12,30 +13,21 @@ h1 {
 }
 
 img {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   box-shadow: 10px 10px 5px 12px lavender;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.memeTemplate,
-.inputFields,
-.memeButtons {
-  text-align: left;
-  border-radius: 20px;
-  padding: 10px;
-  margin-left: 30px;
-}
-
-.Name {
+.memeTemplate {
   color: purple;
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-shadow: 2px 2px 5px blueviolet;
+  margin-bottom: 10px;
 }
 
-.Selection {
+select {
   width: 200px;
 }
 

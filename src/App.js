@@ -2,59 +2,57 @@ import './App.css';
 import { useEffect, useState } from 'react';
 
 function App() {
-  const [url, setUrl] = useState(
-    'https://api.memegen.link/images/aag/foo/bar.png',
-  );
-  const [topText, settopText] = useState('');
-  const [bottomText, setbottomText] = useState('');
-  const [inputName, setInputName] = useState('');
+  const [topText, setTopText] = useState('topText');
+  const [bottomText, setBottomText] = useState('bottomText');
+  const [memeTemplate, setMemeTemplate] = useState('name');
+
+  const url = ['https://api.memegen.link/images/aag/foo/bar.png'];
+  //let randomMemes = memes[Math.floor(Math.random() * memes.length)];
+
+  // const [genButton, setGenButton] = useState('');
+  // const [downloadButton, setDownloadButton] = useState('');
+  // const [resetButton, setResetButton] = useState('');
 
   return (
     <div className="App">
       <h1>RANDOM MEME GENERATOR!</h1>
-
       <div className="memeTemplate">
         <label>
           Meme templates
+          <br />
           <input
-            className="memeTemplate"
-            onChange={(event) => {
-              setInputName(event.currentTarget.value);
-            }}
-            value={inputName}
+            value={memeTemplate}
+            onChange={(event) => setMemeTemplate(event.currentTarget.value)}
           />
         </label>
       </div>
-      <img src="https://api.memegen.link/images/aag/foo/bar.png" alt="" />
       <div className="inputFields">
         <input
-          onChange={(event) => {
-            setInputName(event.currentTarget.value);
-          }}
-          value={inputName}
-          type="text"
-          id="topText"
-          placeholder="Top"
-          value={''}
+          placeholder="Top Text"
+          value={topText}
+          onChange={(event) => setTopText(event.currentTarget.value)}
         />
         <br />
         <input
-          onChange={(event) => {
-            setInputName(event.currentTarget.value);
-          }}
-          value={inputName}
-          type="text"
-          id="bottomText"
-          placeholder="Bottom"
-          value={''}
+          placeholder="Bottom Text"
+          value={bottomText}
+          onChange={(event) => setBottomText(event.currentTarget.value)}
         />
       </div>
-
-      <form className="memeButtons">
+      https://api.memegen.link/images/{`${memeTemplate}`}/{`${topText}`}/
+      {`${bottomText}`}.png
+      <img
+        data-test-id="meme-image"
+        src={`https://api.memegen.link/images/${memeTemplate}/${topText}/${bottomText}.png`}
+        alt=""
+      />{' '}
+      <br />
+      <br />
+      <div className="buttons">
         <button>Generate</button>
         <button>Download</button>
-        <button>Clear</button>
-      </form>
+        <button>Reset</button>
+      </div>
     </div>
   );
 }
